@@ -26,6 +26,8 @@ You may need to change some of the addresses in the docker compose file accordin
 - `GRAFANA_ADMIN_PASSWORD` The password for the Grafana `admin` user.
 - `LOCAL_IP` The IP on which to expose many _security_critical_ things, such as the kubo API. **Make sure you understand the implications of setting this to anything but `127.0.0.1`.**
 - `COMPOSE_PROJECT_NAME` The  namespace for `docker compose`. Usually `docker compose` uses the name of the directory for this, but that's not a useful name in our case. It's used to name containers and volumes.
+- `ENABLE_LOGGING` Whether to save the Bitswap traffic on the disc.
+- `LOG_PATH` The location where the Bitswap logs will be saved. They will be saved in subdirectories, corresponding to the monitor names. Make sure that the permissions of this folder are set correctly, for example by executing 'sudo chown -R 999:999 /path/to/log/directory'
 
 It's easy to supply these via a `.env` file, like so:
 ```shell
@@ -34,6 +36,8 @@ GEOIP_LICENSE_KEY=<alphanumeric key>
 GRAFANA_ADMIN_PASSWORD=<some password>
 LOCAL_IP=127.0.0.1
 COMPOSE_PROJECT_NAME=ipfs-monitoring
+ENABLE_LOGGING=false
+LOG_PATH=/path/to/log/directory
 ```
 
 ### Updating

@@ -97,8 +97,12 @@ services:
     volumes:
       - ./monitoring_client_config.yaml:/ipfs-tools/config/bitswap-monitoring-client-config.yaml
       - geoip_data:/geoip
+      - ${ENABLE_LOGGING:+${LOG_PATH-}}:/ipfs-tools/traces
     environment:
       - RUST_LOG=info
+      # - RUST_LOG=debug
+      - ENABLE_LOGGING
+      - LOG_PATH
     links:
       - rabbitmq
       - prometheus

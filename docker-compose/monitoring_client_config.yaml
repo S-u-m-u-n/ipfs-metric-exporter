@@ -12,6 +12,7 @@ geoip_database_path: "/geoip"
 # If not provided all traffic will be logged as non-gateway-traffic.
 # Defaults to empty, i.e., no tagging of gateway traffic.
 #gateway_file_path: "/usr/local/share/gateways.txt"
+disk_logging_directory: "traces"
 
 # List of AMQP data sources to connect to.
 amqp_servers:
